@@ -26,6 +26,7 @@
             <vaadin-grid-column>
                 <template>
                     <paper-icon-button icon="check" hidden$="[[item.complete]]" on-tap="_complete"></paper-icon-button>
+                    <paper-icon-button icon="clear" hidden$="[[!item.complete]]" on-tap="_remove"></paper-icon-button>
                 </template>
             </vaadin-grid-column>
         </vaadin-grid>
@@ -40,6 +41,14 @@
             _complete(e) {
                 this.set([ 'todos', e.model.index, 'complete' ], true);
                 this._notify(e);
+            }
+
+            _remove(e) {
+                this.dispatchEvent(new CustomEvent('remove-todo', {
+                    detail: {
+                        todo: e.model.item
+                    }
+                }));
             }
 
             _notify(e) {

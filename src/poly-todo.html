@@ -23,7 +23,10 @@
 
         <poly-todo-storage id="store" todos="{{todos}}"></poly-todo-storage>
         <poly-todo-header filter="{{filter}}"></poly-todo-header>
-        <poly-todo-list todos="[[filteredTodos]]" on-item-updated="updateStore"></poly-todo-list>
+        <poly-todo-list todos="[[filteredTodos]]"
+                        on-item-updated="updateStore"
+                        on-remove-todo="_removeTodo"
+        ></poly-todo-list>
         <poly-new-todo on-new-todo="_addTodo"></poly-new-todo>
     </template>
 
@@ -50,6 +53,11 @@
 
             updateStore() {
                 this.$.store.save();
+            }
+
+            _removeTodo(e) {
+                this.todos.splice(this.todos.indexOf(e.detail.todo), 1);
+                this.updateStore();
             }
 
             _getFilteredTodos(array, filter) {
