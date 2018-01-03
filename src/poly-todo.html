@@ -1,11 +1,13 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/lazy-imports/lazy-imports-mixin.html">
 
 <link rel="import" href="poly-new-todo.html">
 <link rel="import" href="poly-todo-header.html">
 <link rel="import" href="poly-todo-storage.html">
-<link rel="import" href="poly-todo-list.html">
 
 <dom-module id="poly-todo">
+    <link rel="lazy-import" group="list" href="poly-todo-list.html">
+
     <template>
         <style>
             :host {
@@ -35,7 +37,7 @@
          * @customElement
          * @polymer
          */
-        class PolyTodo extends Polymer.Element {
+        class PolyTodo extends Polymer.LazyImportsMixin(Polymer.Element) {
             static get is() {
                 return 'poly-todo';
             }
@@ -49,6 +51,12 @@
                         type: Array
                     }
                 };
+            }
+
+            connectedCallback() {
+                super.connectedCallback();
+
+                this.importLazyGroup('list');
             }
 
             updateStore() {
