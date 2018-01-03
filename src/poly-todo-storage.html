@@ -1,0 +1,38 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html"/>
+
+<dom-module id="poly-todo-storage">
+    <template>
+        <app-localstorage-document id="localStorage" key="poly-todos" data="{{todos}}"></app-localstorage-document>
+    </template>
+
+    <script>
+        class PolyTodoStorage extends Polymer.Element {
+            static get is() {
+                return 'poly-todo-storage';
+            }
+
+            static get properties() {
+                return {
+                    todos: {
+                        notify: true,
+                        value: () => [{
+                            complete: true,
+                            label: 'Attend workshop'
+                        }, {
+                            complete: false,
+                            label: 'Start using Polymer'
+                        }]
+                    }
+                }
+            }
+
+            save() {
+                this.$.localStorage.saveValue('poly-todos');
+                this.notifySplices('todos');
+            }
+        }
+
+        window.customElements.define(PolyTodoStorage.is, PolyTodoStorage);
+    </script>
+</dom-module>

@@ -1,0 +1,52 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/vaadin-grid/vaadin-grid.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="poly-todo-list">
+    <template>
+        <style>
+            div {
+                display: flex;
+                align-items: flex-end;
+            }
+        </style>
+
+        <vaadin-grid items="[[todos]]">
+            <vaadin-grid-column>
+                <template class="header">
+                    Do zrobienia
+                </template>
+                <template>
+                    <paper-input value="{{item.label}}" disabled$="[[item.complete]]" on-blur="_notify"></paper-input>
+                </template>
+            </vaadin-grid-column>
+
+            <vaadin-grid-column>
+                <template>
+                    <paper-icon-button icon="check" hidden$="[[item.complete]]" on-tap="_complete"></paper-icon-button>
+                </template>
+            </vaadin-grid-column>
+        </vaadin-grid>
+    </template>
+
+    <script>
+        class PolyTodoList extends Polymer.Element {
+            static get is() {
+                return 'poly-todo-list';
+            }
+
+            _complete(e) {
+                this.set([ 'todos', e.model.index, 'complete' ], true);
+                this._notify(e);
+            }
+
+            _notify(e) {
+                this.dispatchEvent(new CustomEvent('item-updated'));
+            }
+        }
+
+        window.customElements.define(PolyTodoList.is, PolyTodoList);
+    </script>
+</dom-module>
