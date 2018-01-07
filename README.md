@@ -2,32 +2,19 @@
 
 
 
-## Install the Polymer-CLI
+## Live
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
+http://upskill-polymer.gq
 
-## Viewing Your Application
+## Workshop preparation
 
 ```
+$ git clone https://github.com/tpluscode/upskill-polymer.git --branch workshop
+$ cd upskill-polymer
+$ bower install
 $ polymer serve
 ```
 
-## Building Your Application
+## Slides
 
-```
-$ polymer build
-```
-
-This will create builds of your application in the `build/` directory, optimized to be served in production. You can then serve the built versions by giving `polymer serve` a folder to serve from:
-
-```
-$ polymer serve build/default
-```
-
-## Running Tests
-
-```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+http://slides.com/tpluscode/web-components
