@@ -6,7 +6,7 @@
     <template>
         <style>
 
-            paper-button[active] {
+            paper-button-group  ::slotted(paper-button[active]) {
                 font-weight: bold;
                 background-color: var(--poly-color);
                 border: none;
@@ -15,10 +15,10 @@
 
         </style>
 
+        <slot name="header"></slot>
+
         <paper-button-group selected="incomplete" selected-item="{{selectedButton}}" attr-for-selected="data-filter">
-            <paper-button data-filter="all">All</paper-button>
-            <paper-button data-filter="incomplete">Incomplete</paper-button>
-            <paper-button data-filter="complete">Complete</paper-button>
+            <slot name="filters"></slot>
         </paper-button-group>
     </template>
 

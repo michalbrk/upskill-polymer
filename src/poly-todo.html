@@ -24,7 +24,13 @@
         </style>
 
         <poly-todo-storage id="store" todos="{{todos}}"></poly-todo-storage>
-        <poly-todo-header filter="{{filter}}"></poly-todo-header>
+        <poly-todo-header filter="{{filter}}">
+            <div slot="header">Filter</div>
+
+            <paper-button slot="filters" data-filter="all">All</paper-button>
+            <paper-button slot="filters" data-filter="incomplete">Incomplete</paper-button>
+            <paper-button slot="filters" data-filter="complete">Complete</paper-button>
+        </poly-todo-header>
         <poly-todo-list todos="[[filteredTodos]]"
                         on-item-updated="updateStore"
                         on-remove-todo="_removeTodo"
