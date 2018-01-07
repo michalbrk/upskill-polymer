@@ -11,6 +11,7 @@ http://upskill-polymer.gq
 ```
 $ git clone https://github.com/tpluscode/upskill-polymer.git --branch workshop
 $ cd upskill-polymer
+$ npm i -g bower polymer-cli
 $ bower install
 $ polymer serve
 ```
