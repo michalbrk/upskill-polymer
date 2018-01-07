@@ -16,7 +16,7 @@ $ bower install
 $ polymer serve
 ```
 
-### WHat you get
+### What you get
 
 1. Bootsrtapped with `polymer init`
 1. App skeleton with all elements
