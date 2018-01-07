@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["index.html","1acd08acbeec3cf4ea47f2716201a9f0"],["src/poly-todo-list.html","563a1ac44fc3d555abb630534e860c6f"],["src/poly-todo.html","f797dea4e3d136bd1c7409f9d3b9bf53"]];
+var precacheConfig = [["index.html","1acd08acbeec3cf4ea47f2716201a9f0"],["src/poly-todo-list.html","563a1ac44fc3d555abb630534e860c6f"],["src/poly-todo.html","5c9371800a3ce2e860db5c176e4138b7"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 
