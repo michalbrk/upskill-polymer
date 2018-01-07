@@ -20,6 +20,7 @@ $ polymer serve
 1. Bootsrtapped with `polymer init`
 1. App skeleton with all elements
 1. All external dependencies already installed
+1. Ready to `polymer build`
 
 ## Slides
 
