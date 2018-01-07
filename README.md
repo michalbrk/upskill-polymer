@@ -15,6 +15,12 @@ $ bower install
 $ polymer serve
 ```
 
+### WHat you get
+
+1. Bootsrtapped with `polymer init`
+1. App skeleton with all elements
+1. All external dependencies already installed
+
 ## Slides
 
 http://slides.com/tpluscode/web-components
