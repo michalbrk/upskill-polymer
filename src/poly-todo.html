@@ -1,0 +1,44 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="poly-new-todo.html">
+<link rel="import" href="poly-todo-header.html">
+<link rel="import" href="poly-todo-storage.html">
+<link rel="import" href="poly-todo-list.html">
+
+<dom-module id="poly-todo">
+
+    <template>
+        <poly-todo-storage id="store" todos="{{todos}}"></poly-todo-storage>
+        <poly-todo-header filter="{{filter}}"></poly-todo-header>
+        <poly-todo-list todos="[[filteredTodos]]"
+                        on-item-updated="updateStore"
+                        on-remove-todo="_removeTodo"
+        ></poly-todo-list>
+        <poly-new-todo on-new-todo="_addTodo"></poly-new-todo>
+    </template>
+
+    <script>
+        /**
+         * @customElement
+         * @polymer
+         */
+        class PolyTodo extends Polymer.Element {
+            static get is() {
+                return 'poly-todo';
+            }
+
+            static get properties() {
+                return {
+                    filteredTodos: {
+                        computed: '_getFilteredTodos(todos.*, filter)'
+                    },
+                    todos: {
+                        type: Array
+                    }
+                };
+            }
+        }
+
+        window.customElements.define(PolyTodo.is, PolyTodo);
+    </script>
+</dom-module>

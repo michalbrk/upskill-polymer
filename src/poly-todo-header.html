@@ -1,0 +1,23 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-button-group/paper-button-group.html"/>
+
+<dom-module id="poly-todo-header">
+    <template>
+    </template>
+
+    <script>
+        const filters = {
+            all: () => true,
+            incomplete: todo => todo.complete === false,
+            complete: todo => todo.complete === true
+        };
+
+        class PolyTodoHeader extends Polymer.Element {
+            static get is() {
+                return 'poly-todo-header';
+            }
+        }
+
+        window.customElements.define(PolyTodoHeader.is, PolyTodoHeader);
+    </script>
+</dom-module>

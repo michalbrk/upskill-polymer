@@ -1,0 +1,17 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html"/>
+
+<dom-module id="poly-todo-storage">
+    <template>
+    </template>
+
+    <script>
+        class PolyTodoStorage extends Polymer.Element {
+            static get is() {
+                return 'poly-todo-storage';
+            }
+        }
+
+        window.customElements.define(PolyTodoStorage.is, PolyTodoStorage);
+    </script>
+</dom-module>

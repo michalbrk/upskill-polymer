@@ -1,0 +1,33 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/poly-todo.html",
+  "sources": [
+    "generated/**/*",
+    "bower.json"
+  ],
+  "extraDependencies": [
+    "assets/*",
+    "bower_components/webcomponentsjs/**/*"
+  ],
+  "lint": {
+    "rules": [
+      "polymer-2"
+    ]
+  },
+  "builds": [{
+    "name": "prod",
+    "bundle": {
+      "stripComments": true
+    },
+    "js": { "compile": true, "minify": true },
+    "css": { "minify": true },
+    "html": { "minify": true },
+    "addServiceWorker": true
+  }, {
+    "name":"staging",
+    "bundle": true,
+    "js": { "compile": true, "minify": true },
+    "css": { "minify": false },
+    "html": { "minify": false }
+  }]
+}
