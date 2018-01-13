@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="upskilljs-polymer">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `upskilljs-polymer`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class UpskilljsPolymer extends Polymer.Element {
+      static get is() { return 'upskilljs-polymer'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'upskilljs-polymer'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(UpskilljsPolymer.is, UpskilljsPolymer);
+  </script>
+</dom-module>

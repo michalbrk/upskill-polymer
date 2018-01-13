@@ -37,6 +37,23 @@
                     }
                 };
             }
+            _getFilteredTodos(todos, filter) {
+                if(todos.base && filter) {
+                    return todos.base.filter(filter)
+                }
+                
+                return todos;
+            }
+            
+            updateStore() {
+                this.$.store.save();
+            }
+            
+            _removeTodo(ev) {
+                this.todos.splice(this.todos.indexOf(ev.detail.todo),
+                                 1);
+                this.$.store.save();
+            }
         }
 
         window.customElements.define(PolyTodo.is, PolyTodo);

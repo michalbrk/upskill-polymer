@@ -3,6 +3,15 @@
 
 <dom-module id="poly-todo-header">
     <template>
+        <style>
+            paper-button[active]
+        </style>
+        
+        <paper-button-group id="group" selected="incomplete" selected-item="{{selectedButton}}" attr-for-selected="data-filter">
+            <paper-button data-filter="all">All</paper-button>
+            <paper-button data-filter="incomplete">Incomplete</paper-button>
+            <paper-button data-filter="complete">Complete</paper-button>
+        </paper-button-group>
     </template>
 
     <script>
@@ -15,6 +24,23 @@
         class PolyTodoHeader extends Polymer.Element {
             static get is() {
                 return 'poly-todo-header';
+            }
+            
+            static get properties() {
+                return {
+                    filter: {
+                        notfiy: true,
+                        computed: '_getFilter(seletedButton)'
+                    }
+                };
+            }
+            
+            _getFilter(button) {
+                let option = 'all';
+                if(button) {
+                    option = this.$.group.selected
+                }
+                return filters[option]
             }
         }
 

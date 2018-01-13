@@ -3,12 +3,30 @@
 
 <dom-module id="poly-todo-storage">
     <template>
+        <app-localstorage-document key="poly-todos" data="{{todos}}" id="ls"></app-localstorage-document>
     </template>
 
     <script>
         class PolyTodoStorage extends Polymer.Element {
             static get is() {
                 return 'poly-todo-storage';
+            }
+            
+            static get properties() {
+                return {
+                    todos: {
+                        value: () => [{
+                            label: 'Ukończyć warsztat',
+                            complete: false
+                        }],
+                        notify: true
+                    }
+                }
+                
+                save() {
+                    this.$.ls.saveValue('poly-todos');
+                    this.notifySplices('todos');
+                }
             }
         }
 

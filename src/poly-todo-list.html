@@ -6,12 +6,43 @@
 
 <dom-module id="poly-todo-list">
     <template>
+        <vaadin-grid items="[[todos]]">
+            <vaadin-grid-column>
+                <template class="header">
+                    Do zrobienia
+                </template>
+                
+                <template>
+                    <paper-input disabled="[[item.complete]]" value="{{item.label}}"></paper-input>
+                </template>
+            </vaadin-grid-column>
+            
+            <vaadin-grid-column>
+                <template>
+                    <paper-icon-button icon="check" hidden$="[[item.complete]]" on-tap="_completeTodo"></paper-icon-button>
+                    <paper-icon-button icon="clear" hidden$="[[!item.complete]]" on-tap="_removeTodo"></paper-icon-button>
+                </template>
+            </vaadin-grid-column>
+        </vaadin-grid>
     </template>
 
     <script>
         class PolyTodoList extends Polymer.Element {
             static get is() {
                 return 'poly-todo-list';
+            }
+            
+            _completeTOdo(ev) {
+                this.set(['todos', ev.model.index, 'complete'], true);
+                this.dispatchEvent(new CustomEvent('item-updated'));
+            }
+            
+            _removeTodo(ev) {
+                this.dispatchEvent(new CustomEvent('remove-todo', {
+                    detail: {
+                        todo: ev.model.item
+                    }
+                }))
             }
         }
 

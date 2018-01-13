@@ -2,27 +2,20 @@
 
 
 
-## Live
+## Install the Polymer-CLI
 
-http://upskill-polymer.gq
+First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
 
-## Workshop preparation
+## Viewing Your Element
 
 ```
-$ git clone https://github.com/tpluscode/upskill-polymer.git --branch workshop
-$ cd upskill-polymer
-$ npm i -g bower polymer-cli
-$ bower install
 $ polymer serve
 ```
 
-### What you get
+## Running Tests
 
-1. Bootsrtapped with `polymer init`
-1. App skeleton with all elements
-1. All external dependencies already installed
-1. Ready to `polymer build`
+```
+$ polymer test
+```
 
-## Slides
-
-http://slides.com/tpluscode/web-components
+Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
